@@ -95,7 +95,10 @@ body {
   text-decoration: none;
 }
 
-.season-card img {
+.season-card .slide {
+  position: absolute;
+  inset: 0;
+
   display: block;
 
   width: 100%;
@@ -103,9 +106,15 @@ body {
 
   object-fit: cover;
 
+  opacity: 0;
+
   transition:
-    opacity 0.6s ease,
+    opacity 1.4s ease,
     transform 0.7s ease;
+}
+
+.season-card .slide.visible {
+  opacity: 1;
 }
 
 
@@ -153,7 +162,7 @@ body {
   transform: translateY(0);
 }
 
-.season-card:hover img {
+.season-card:hover .slide {
   transform: scale(1.015);
 }
 
