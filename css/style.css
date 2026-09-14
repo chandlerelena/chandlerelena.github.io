@@ -366,3 +366,30 @@ body {
   }
 
 }
+
+/* =========================================
+   COMING SOON PAGE
+   ========================================= */
+
+.coming-soon {
+  width: 88%;
+  max-width: 1600px;
+
+  min-height: 55vh;
+
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.coming-soon p {
+  margin: 0;
+
+  color: #777777;
+
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
