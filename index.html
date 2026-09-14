@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Your Name Photography</title>
+  <title>Chandler Elena Photography</title>
 
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -26,11 +26,14 @@
 
   <main class="season-grid">
 
-    <a href="galleries/spring.html" class="season-card">
-      <img
-        src="images/home/spring.jpg"
-        alt="Spring photography"
-      >
+    <a
+      href="galleries/spring.html"
+      class="season-card slideshow"
+      data-season="spring"
+      data-interval="8000"
+    >
+      <img class="slide slide-a" alt="Spring photography">
+      <img class="slide slide-b" alt="Spring photography">
 
       <div class="season-overlay">
         <span>Spring</span>
@@ -38,11 +41,14 @@
     </a>
 
 
-    <a href="galleries/summer.html" class="season-card">
-      <img
-        src="images/home/summer.jpg"
-        alt="Summer photography"
-      >
+    <a
+      href="galleries/summer.html"
+      class="season-card slideshow"
+      data-season="summer"
+      data-interval="11000"
+    >
+      <img class="slide slide-a" alt="Summer photography">
+      <img class="slide slide-b" alt="Summer photography">
 
       <div class="season-overlay">
         <span>Summer</span>
@@ -50,11 +56,14 @@
     </a>
 
 
-    <a href="galleries/autumn.html" class="season-card">
-      <img
-        src="images/home/autumn.jpg"
-        alt="Autumn photography"
-      >
+    <a
+      href="galleries/autumn.html"
+      class="season-card slideshow"
+      data-season="autumn"
+      data-interval="9000"
+    >
+      <img class="slide slide-a" alt="Autumn photography">
+      <img class="slide slide-b" alt="Autumn photography">
 
       <div class="season-overlay">
         <span>Autumn</span>
@@ -62,11 +71,14 @@
     </a>
 
 
-    <a href="galleries/winter.html" class="season-card">
-      <img
-        src="images/home/winter.jpg"
-        alt="Winter photography"
-      >
+    <a
+      href="galleries/winter.html"
+      class="season-card slideshow"
+      data-season="winter"
+      data-interval="13000"
+    >
+      <img class="slide slide-a" alt="Winter photography">
+      <img class="slide slide-b" alt="Winter photography">
 
       <div class="season-overlay">
         <span>Winter</span>
@@ -77,8 +89,10 @@
 
 
   <footer class="site-footer">
-    <p>© 2026 Your Name</p>
+    <p>© 2026 Chandler Elena</p>
   </footer>
+
+  <script src="js/home-slideshow.js"></script>
 
 </body>
 </html>
