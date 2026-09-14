@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>About — Chandler Elena</title>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="site-title">
+      CHANDLER ELENA
+    </a>
+
+    <nav class="site-nav">
+      <a href="index.html">Work</a>
+      <a href="journal.html">Journal</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+
+  <main class="about-page">
+
+    <div class="about-image">
+      <img
+        src="images/about/about-placeholder.jpg"
+        alt="Portrait of Chandler Elena"
+      >
+    </div>
+
+    <div class="about-copy">
+
+      <h1>About</h1>
+
+      <p>
+        Placeholder first paragraph.
+      </p>
+
+      <p>
+        Placeholder second paragraph.
+      </p>
+
+
+      <div class="social-links">
+
+        <a
+          href="https://www.flickr.com/photos/chandlerelena"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Flickr"
+        >
+          <img src="images/icons/flickr.png" alt="">
+        </a>
+
+        <a
+          href="#"
+          aria-label="Substack"
+        >
+          <img src="images/icons/substack.png" alt="">
+        </a>
+
+        <a
+          href="https://pixelfed.social/chandlerelena"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Pixelfed"
+        >
+          <img src="images/icons/pixelfed.png" alt="">
+        </a>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <footer class="site-footer">
+    <p>© 2026 Chandler Elena</p>
+  </footer>
+
+</body>
+</html>
