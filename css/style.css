@@ -439,7 +439,7 @@ body {
   position: relative;
 
   width: 100%;
-  height: min(67vh, 850px);
+  height: min(76vh, 950px);
 
   overflow: hidden;
 
@@ -454,7 +454,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  padding: 20px;
+  padding: 6px;
 }
 
 .gallery-slide img {
