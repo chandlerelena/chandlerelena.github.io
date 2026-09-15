@@ -191,10 +191,10 @@ document.addEventListener("DOMContentLoaded", () => {
     isAnimating = true;
 
     const outgoingDistance =
-      direction === "next" ? "-35px" : "35px";
+      direction === "next" ? "-100%" : "100%";
 
     const incomingDistance =
-      direction === "next" ? "35px" : "-35px";
+      direction === "next" ? "100%" : "-100%";
 
 
     /*
