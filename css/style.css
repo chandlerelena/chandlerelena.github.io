@@ -393,3 +393,234 @@ body {
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
+
+/* =========================================
+   SEASONAL GALLERY
+   ========================================= */
+
+.gallery-page {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.gallery-header {
+  padding-bottom: 25px;
+}
+
+
+/* Main gallery area */
+
+.gallery-viewer {
+  width: 88%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.gallery-heading {
+  margin-bottom: 15px;
+}
+
+.gallery-heading h1 {
+  margin: 0;
+
+  font-size: 12px;
+  font-weight: 400;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: #777777;
+}
+
+
+/* The fixed visual stage */
+
+.gallery-stage {
+  position: relative;
+
+  width: 100%;
+  height: min(67vh, 850px);
+
+  overflow: hidden;
+
+  background: #f2f2f2;
+}
+
+.gallery-slide {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+}
+
+.gallery-slide img {
+  display: block;
+
+  max-width: 100%;
+  max-height: 100%;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  opacity: 1;
+
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+
+/* Caption and counter */
+
+.gallery-info {
+  min-height: 50px;
+
+  padding-top: 13px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 30px;
+}
+
+.gallery-caption {
+  color: #666666;
+
+  font-size: 11px;
+  line-height: 1.6;
+
+  letter-spacing: 0.03em;
+}
+
+.gallery-counter {
+  flex-shrink: 0;
+
+  color: #888888;
+
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.counter-divider {
+  padding: 0 4px;
+}
+
+
+/* Previous / Next */
+
+.gallery-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 6px;
+
+  gap: 10px;
+}
+
+.gallery-controls button {
+  padding: 5px 0;
+
+  border: 0;
+  background: none;
+
+  color: #555555;
+
+  font-family: inherit;
+  font-size: 10px;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: opacity 0.25s ease;
+}
+
+.gallery-controls button:hover {
+  opacity: 0.45;
+}
+
+.gallery-controls button:disabled {
+  opacity: 0.2;
+  cursor: default;
+}
+
+.control-divider {
+  color: #aaaaaa;
+  font-size: 10px;
+}
+
+
+/* Previous / next season */
+
+.gallery-season-nav {
+  width: 88%;
+  max-width: 1600px;
+
+  margin: 45px auto 0;
+  padding-bottom: 30px;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.gallery-season-nav a {
+  color: #666666;
+  text-decoration: none;
+
+  transition: opacity 0.3s ease;
+}
+
+.gallery-season-nav a:hover {
+  opacity: 0.5;
+}
+
+.season-nav-disabled {
+  color: #bbbbbb;
+}
+
+
+/* =========================================
+   GALLERY — MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+  .gallery-header {
+    padding-bottom: 20px;
+  }
+
+  .gallery-viewer {
+    width: 90%;
+  }
+
+  .gallery-stage {
+    height: 58vh;
+  }
+
+  .gallery-slide {
+    padding: 8px;
+  }
+
+  .gallery-info {
+    min-height: 55px;
+  }
+
+  .gallery-season-nav {
+    width: 90%;
+    margin-top: 35px;
+  }
+
+}
