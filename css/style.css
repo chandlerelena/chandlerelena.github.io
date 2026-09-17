@@ -152,7 +152,7 @@ body {
 }
 
 .season-card:hover .season-overlay {
-  background: rgba(40, 40, 40, 0.35);
+  background: rgba(40, 40, 40, 0.5);
 }
 
 .season-card:hover .season-overlay span {
