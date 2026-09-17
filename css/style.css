@@ -87,7 +87,7 @@ body {
   overflow: hidden;
 
   /* Wide panoramic slide */
-  aspect-ratio: 8 / 1;
+  aspect-ratio: 5 / 1;
 
   background: #eeeeee;
   text-decoration: none;
