@@ -69,6 +69,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const date =
     document.getElementById("gallery-date");
 
+  const caption =
+    document.querySelector(".gallery-caption");
+
   const currentNumber =
     document.getElementById("current-number");
 
@@ -139,12 +142,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /*
+    Give the caption a landscape or portrait
+    class based on the current photograph.
+  */
+
+  function updateCaptionPosition() {
+
+    caption.classList.remove(
+      "landscape",
+      "portrait"
+    );
+
+    if (image.naturalWidth > image.naturalHeight) {
+
+      caption.classList.add("landscape");
+
+    } else {
+
+      caption.classList.add("portrait");
+
+    }
+
+  }
+
+
+  /*
     Load the initial photograph.
   */
 
   function loadInitialImage() {
 
     const item = gallery[currentIndex];
+
+    image.onload = () => {
+      updateCaptionPosition();
+    };
 
     image.src = item.image;
     image.alt = item.alt;
@@ -181,6 +213,10 @@ document.addEventListener("DOMContentLoaded", () => {
       currentIndex = newIndex;
 
       const item = gallery[currentIndex];
+
+      image.onload = () => {
+        updateCaptionPosition();
+      };
 
       image.src = item.image;
       image.alt = item.alt;
@@ -240,6 +276,8 @@ document.addEventListener("DOMContentLoaded", () => {
       */
 
       image.onload = () => {
+
+        updateCaptionPosition();
 
         requestAnimationFrame(() => {
 
