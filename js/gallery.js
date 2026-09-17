@@ -286,35 +286,38 @@ function alignCaption() {
         to actually load before revealing it.
       */
 
-      image.onload = () => {
+ image.onload = () => {
+
+  requestAnimationFrame(() => {
+
+    requestAnimationFrame(() => {
+
+      image.style.transition =
+        "transform 0.35s ease, opacity 0.35s ease";
+
+      image.style.transform =
+        "translateX(0)";
+
+      image.style.opacity = "1";
+
+      /*
+        Wait until the photograph has finished
+        sliding into its real position before
+        measuring its left edge.
+      */
+
+      setTimeout(() => {
 
         alignCaption();
+        isAnimating = false;
 
-        requestAnimationFrame(() => {
+      }, 350);
 
-          requestAnimationFrame(() => {
+    });
 
-            image.style.transition =
-              "transform 0.4s ease, opacity 0.4s ease";
+  });
 
-            image.style.transform =
-              "translateX(0)";
-
-            image.style.opacity = "1";
-
-            setTimeout(() => {
-              isAnimating = false;
-            }, 400);
-
-          });
-
-        });
-
-      };
-
-    }, 400);
-
-  }
+};
 
 
   /*
