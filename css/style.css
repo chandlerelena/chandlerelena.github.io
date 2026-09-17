@@ -78,7 +78,7 @@ body {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 8px;
 }
 
 .season-card {
@@ -87,7 +87,7 @@ body {
   overflow: hidden;
 
   /* Wide panoramic slide */
-  aspect-ratio: 4 / 1;
+  aspect-ratio: 8 / 1;
 
   background: #eeeeee;
   text-decoration: none;
