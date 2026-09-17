@@ -76,11 +76,9 @@ body {
   width: 88%;
   max-width: 1600px;
   margin: 0 auto;
-
   display: flex;
   flex-direction: column;
-
-  gap: 65px;
+  gap: 15px;
 }
 
 .season-card {
@@ -88,8 +86,8 @@ body {
   display: block;
   overflow: hidden;
 
-  /* Wide panoramic / XPAN-inspired ratio */
-  aspect-ratio: 2.7 / 1;
+  /* Wide panoramic slide */
+  aspect-ratio: 4 / 1;
 
   background: #eeeeee;
   text-decoration: none;
