@@ -491,9 +491,6 @@ body {
 }
 
 .gallery-caption {
-  position: relative;
-  left: 25%;
-   
   color: #666666;
 
   font-size: 11px;
@@ -619,12 +616,6 @@ body {
 
   .gallery-info {
     min-height: 55px;
-  }
-
-  .gallery-caption {
-    position: relative;
-    left: 0;
-    margin-left: 0;
   }
 
   .gallery-season-nav {
