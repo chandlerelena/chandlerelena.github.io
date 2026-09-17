@@ -499,6 +499,18 @@ body {
   letter-spacing: 0.03em;
 }
 
+/* Caption position for horizontal photographs */
+
+.gallery-caption.landscape {
+  margin-left: 20%;
+}
+
+
+/* Caption position for vertical photographs */
+
+.gallery-caption.portrait {
+  margin-left: 38%;
+}
 .gallery-counter {
   flex-shrink: 0;
 
@@ -621,6 +633,11 @@ body {
   .gallery-season-nav {
     width: 90%;
     margin-top: 35px;
+  }
+
+  .gallery-caption.landscape,
+  .gallery-caption.portrait {
+    margin-left: 0;
   }
 
 }
