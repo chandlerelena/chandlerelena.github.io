@@ -502,14 +502,14 @@ body {
 /* Caption position for horizontal photographs */
 
 .gallery-caption.landscape {
-  margin-left: 20%;
+  margin-left: 23%;
 }
 
 
 /* Caption position for vertical photographs */
 
 .gallery-caption.portrait {
-  margin-left: 38%;
+  margin-left: 32%;
 }
 .gallery-counter {
   flex-shrink: 0;
