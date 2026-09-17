@@ -491,7 +491,8 @@ body {
 }
 
 .gallery-caption {
-  margin-left: 25%;
+  position: relative;
+  left: 25%;
    
   color: #666666;
 
@@ -621,6 +622,8 @@ body {
   }
 
   .gallery-caption {
+    position: relative;
+    left: 0;
     margin-left: 0;
   }
 
