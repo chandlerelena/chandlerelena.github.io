@@ -60,10 +60,14 @@ document.addEventListener("DOMContentLoaded", () => {
     =========================================
   */
 
-  const image = document.getElementById("gallery-image");
+  const image =
+    document.getElementById("gallery-image");
 
-  const location = document.getElementById("gallery-location");
-  const date = document.getElementById("gallery-date");
+  const location =
+    document.getElementById("gallery-location");
+
+  const date =
+    document.getElementById("gallery-date");
 
   const currentNumber =
     document.getElementById("current-number");
@@ -82,7 +86,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let isAnimating = false;
 
   const prefersReducedMotion =
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
 
   /*
@@ -233,7 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
         to actually load before revealing it.
       */
 
-       image.onload = () => {
+      image.onload = () => {
 
         requestAnimationFrame(() => {
 
@@ -256,6 +262,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
       };
+
+    }, 350);
+
+  }
 
 
   /*
@@ -316,7 +326,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let touchStartX = 0;
   let touchEndX = 0;
 
-
   const stage =
     document.querySelector(".gallery-stage");
 
@@ -372,6 +381,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     { passive: true }
   );
+
 
   loadInitialImage();
 
