@@ -131,6 +131,55 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
+  /*
+  Align the caption with the left edge
+  of the currently displayed photograph.
+*/
+
+function alignCaption() {
+
+  const caption =
+    document.querySelector(".gallery-caption");
+
+  const viewer =
+    document.querySelector(".gallery-viewer");
+
+  /*
+    On mobile, keep the original
+    simple caption position.
+  */
+
+  if (window.innerWidth <= 700) {
+    caption.style.marginLeft = "0";
+    return;
+  }
+
+
+  const imageRect =
+    image.getBoundingClientRect();
+
+  const viewerRect =
+    viewer.getBoundingClientRect();
+
+
+  /*
+    Find the photograph's left edge
+    relative to the gallery viewer.
+  */
+
+  const imageLeft =
+    imageRect.left - viewerRect.left;
+
+
+  /*
+    Add a tiny inset so the caption
+    isn't perfectly flush with the image.
+  */
+
+  caption.style.marginLeft =
+    `${imageLeft + 8}px`;
+
+}
 
   /*
     Load the initial photograph.
@@ -139,6 +188,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function loadInitialImage() {
 
     const item = gallery[currentIndex];
+
+    image.onload = () => {
+      alignCaption();
+    };
 
     image.src = item.image;
     image.alt = item.alt;
@@ -234,6 +287,8 @@ document.addEventListener("DOMContentLoaded", () => {
       */
 
       image.onload = () => {
+
+        alignCaption();
 
         requestAnimationFrame(() => {
 
@@ -376,7 +431,10 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     { passive: true }
   );
-
+  
+  window.addEventListener("resize", () => {
+  alignCaption();
+});
 
   loadInitialImage();
 
