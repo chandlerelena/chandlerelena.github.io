@@ -131,55 +131,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
-  /*
-  Align the caption with the left edge
-  of the currently displayed photograph.
-*/
-
-function alignCaption() {
-
-  const caption =
-    document.querySelector(".gallery-caption");
-
-  const viewer =
-    document.querySelector(".gallery-viewer");
-
-  /*
-    On mobile, keep the original
-    simple caption position.
-  */
-
-  if (window.innerWidth <= 700) {
-    caption.style.marginLeft = "0";
-    return;
-  }
-
-
-  const imageRect =
-    image.getBoundingClientRect();
-
-  const viewerRect =
-    viewer.getBoundingClientRect();
-
-
-  /*
-    Find the photograph's left edge
-    relative to the gallery viewer.
-  */
-
-  const imageLeft =
-    imageRect.left - viewerRect.left;
-
-
-  /*
-    Add a tiny inset so the caption
-    isn't perfectly flush with the image.
-  */
-
-  caption.style.marginLeft =
-    `${imageLeft + 8}px`;
-
-}
 
   /*
     Load the initial photograph.
@@ -188,10 +139,6 @@ function alignCaption() {
   function loadInitialImage() {
 
     const item = gallery[currentIndex];
-
-    image.onload = () => {
-      alignCaption();
-    };
 
     image.src = item.image;
     image.alt = item.alt;
@@ -286,38 +233,29 @@ function alignCaption() {
         to actually load before revealing it.
       */
 
- image.onload = () => {
+       image.onload = () => {
 
-  requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
 
-    requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
 
-      image.style.transition =
-        "transform 0.35s ease, opacity 0.35s ease";
+            image.style.transition =
+              "transform 0.35s ease, opacity 0.35s ease";
 
-      image.style.transform =
-        "translateX(0)";
+            image.style.transform =
+              "translateX(0)";
 
-      image.style.opacity = "1";
+            image.style.opacity = "1";
 
-      /*
-        Wait until the photograph has finished
-        sliding into its real position before
-        measuring its left edge.
-      */
+            setTimeout(() => {
+              isAnimating = false;
+            }, 350);
 
-      setTimeout(() => {
+          });
 
-        alignCaption();
-        isAnimating = false;
+        });
 
-      }, 350);
-
-    });
-
-  });
-
-};
+      };
 
 
   /*
@@ -434,10 +372,6 @@ function alignCaption() {
     },
     { passive: true }
   );
-  
-  window.addEventListener("resize", () => {
-  alignCaption();
-});
 
   loadInitialImage();
 
