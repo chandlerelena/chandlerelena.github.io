@@ -646,8 +646,8 @@ body {
 
 body {
   transition:
-    background-color 0.35s ease,
-    color 0.35s ease;
+    background-color 0.75s ease,
+    color 0.75s ease;
 }
 
 
