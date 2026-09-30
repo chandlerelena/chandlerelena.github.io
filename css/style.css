@@ -639,3 +639,109 @@ body {
   }
 
 }
+
+/* ========================================
+   LIGHT / DARK THEME
+   ======================================== */
+
+body {
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+
+/* Theme toggle */
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  border: 0;
+  background: none;
+
+  color: #555555;
+
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.theme-toggle:hover {
+  opacity: 0.5;
+}
+
+
+/* Dark mode */
+
+body.dark-mode {
+  background: #111111;
+  color: #eeeeee;
+}
+
+body.dark-mode .site-title {
+  color: #eeeeee;
+}
+
+body.dark-mode .site-nav a {
+  color: #bbbbbb;
+}
+
+body.dark-mode .theme-toggle {
+  color: #dddddd;
+}
+
+body.dark-mode .gallery-heading h1 {
+  color: #aaaaaa;
+}
+
+body.dark-mode .gallery-stage {
+  background: #202020;
+}
+
+body.dark-mode .gallery-caption {
+  color: #aaaaaa;
+}
+
+body.dark-mode .gallery-counter {
+  color: #999999;
+}
+
+body.dark-mode .gallery-controls button {
+  color: #bbbbbb;
+}
+
+body.dark-mode .control-divider {
+  color: #777777;
+}
+
+body.dark-mode .gallery-season-nav a {
+  color: #aaaaaa;
+}
+
+body.dark-mode .site-footer {
+  color: #888888;
+}
+
+body.dark-mode .about-copy p {
+  color: #bbbbbb;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+  .theme-toggle {
+    font-size: 15px;
+  }
+
+}
