@@ -682,56 +682,56 @@ body {
 
 /* Dark mode */
 
-body.dark-mode {
+html.dark-mode body {
   background: #111111;
   color: #eeeeee;
 }
 
-body.dark-mode .site-title {
+html.dark-mode .site-title {
   color: #eeeeee;
 }
 
-body.dark-mode .site-nav a {
+html.dark-mode .site-nav a {
   color: #bbbbbb;
 }
 
-body.dark-mode .theme-toggle {
+html.dark-mode .theme-toggle {
   color: #dddddd;
 }
 
-body.dark-mode .gallery-heading h1 {
+html.dark-mode .gallery-heading h1 {
   color: #aaaaaa;
 }
 
-body.dark-mode .gallery-stage {
+html.dark-mode .gallery-stage {
   background: #202020;
 }
 
-body.dark-mode .gallery-caption {
+html.dark-mode .gallery-caption {
   color: #aaaaaa;
 }
 
-body.dark-mode .gallery-counter {
+html.dark-mode .gallery-counter {
   color: #999999;
 }
 
-body.dark-mode .gallery-controls button {
+html.dark-mode .gallery-controls button {
   color: #bbbbbb;
 }
 
-body.dark-mode .control-divider {
+html.dark-mode .control-divider {
   color: #777777;
 }
 
-body.dark-mode .gallery-season-nav a {
+html.dark-mode .gallery-season-nav a {
   color: #aaaaaa;
 }
 
-body.dark-mode .site-footer {
+html.dark-mode .site-footer {
   color: #888888;
 }
 
-body.dark-mode .about-copy p {
+html.dark-mode .about-copy p {
   color: #bbbbbb;
 }
 
