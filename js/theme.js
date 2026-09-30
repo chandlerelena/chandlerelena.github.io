@@ -8,40 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /*
-    Determine the starting theme.
-
-    Priority:
-    1. Visitor's saved choice
-    2. Device preference
-    3. Light mode
-  */
-
-  const savedTheme =
-    localStorage.getItem("theme");
-
-  const prefersDark =
-    window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-
-
-  if (
-    savedTheme === "dark" ||
-    (!savedTheme && prefersDark)
-  ) {
-    document.body.classList.add("dark-mode");
-  }
-
-
-  /*
-    Update the icon and accessibility label.
-  */
-
   function updateToggle() {
 
     const isDark =
-      document.body.classList.contains(
+      document.documentElement.classList.contains(
         "dark-mode"
       );
 
@@ -58,20 +28,16 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /*
-    Toggle theme and remember the choice.
-  */
-
   themeToggle.addEventListener(
     "click",
     () => {
 
-      document.body.classList.toggle(
+      document.documentElement.classList.toggle(
         "dark-mode"
       );
 
       const isDark =
-        document.body.classList.contains(
+        document.documentElement.classList.contains(
           "dark-mode"
         );
 
