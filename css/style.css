@@ -736,6 +736,21 @@ html.dark-mode .about-copy p {
   color: #bbbbbb;
 }
 
+.site-title,
+.site-nav a,
+.theme-toggle,
+.gallery-heading h1,
+.gallery-caption,
+.gallery-counter,
+.gallery-controls button,
+.control-divider,
+.gallery-season-nav a,
+.site-footer,
+.about-copy p {
+  transition:
+    color 0.75s ease,
+    opacity 0.3s ease;
+}
 
 /* Mobile */
 
