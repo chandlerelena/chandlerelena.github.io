@@ -651,6 +651,38 @@ body {
     color 0.75s ease;
 }
 
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  border: 0;
+  background: none;
+
+  color: #555555;
+
+  font-family:
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Yu Gothic",
+    Meiryo,
+    sans-serif;
+
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+
+  cursor: pointer;
+
+  transition:
+    color 0.75s ease,
+    opacity 0.3s ease;
+}
+
+.language-toggle:hover {
+  opacity: 0.5;
+}
 
 /* Theme toggle */
 
@@ -693,6 +725,10 @@ html.dark-mode .site-title {
 }
 
 html.dark-mode .site-nav a {
+  color: #bbbbbb;
+}
+
+html.dark-mode .language-toggle {
   color: #bbbbbb;
 }
 
