@@ -15,6 +15,23 @@
     document.documentElement.classList.add("dark-mode");
   }
 </script>
+
+  <script>
+  try {
+    const savedLanguage =
+      localStorage.getItem("language") || "en";
+
+    document.documentElement.setAttribute(
+      "data-language",
+      savedLanguage
+    );
+  } catch (error) {
+    document.documentElement.setAttribute(
+      "data-language",
+      "en"
+    );
+  }
+</script>
   
   <title>Winter</title>
 
@@ -23,33 +40,40 @@
 
 <body class="gallery-page">
 
-  <header class="site-header gallery-header">
+  <<header class="site-header">
+  <a href="../index.html" class="site-title">
+    <span class="site-name">CHANDLER ELENA</span>
+    <span class="site-name-ja">チャンドラ エレナ</span>
+  </a>
 
-    <a href="../index.html" class="site-title">
-      CHANDLER ELENA
-    </a>
+  <nav class="site-nav">
+    <a href="../index.html" data-en="Work" data-ja="作品集">Work</a>
+    <a href="../journal.html" data-en="Journal" data-ja="ブログ">Journal</a>
+    <a href="../about.html" data-en="About" data-ja="私について">About</a>
 
-   <nav class="site-nav">
-    <a href="../index.html">Work</a>
-    <a href="../journal.html">Journal</a>
-    <a href="../about.html">About</a>
+    <button
+      class="language-toggle"
+      type="button"
+      aria-label="Switch to Japanese"
+    >
+      EN / 日本語
+    </button>
 
-  <button
-    class="theme-toggle"
-    type="button"
-    aria-label="Switch to dark mode"
-  >
-    ☾
-  </button>
-</nav>
-
-  </header>
+    <button
+      class="theme-toggle"
+      type="button"
+      aria-label="Switch to dark mode"
+    >
+      ☾
+    </button>
+  </nav>
+</header>
 
 
   <main class="gallery-viewer">
 
     <div class="gallery-heading">
-      <h1>Winter</h1>
+      <h1 data-en="Winter" data-ja="冬">Winter</h1>
     </div>
 
 
@@ -88,7 +112,8 @@
 
       <button
         id="previous-button"
-        type="button"
+        data-en="Previous"
+        data-ja="前へ"
       >
         Previous
       </button>
@@ -97,7 +122,8 @@
 
       <button
         id="next-button"
-        type="button"
+        data-en="Next"
+        data-ja="次へ"
       >
         Next
       </button>
@@ -109,19 +135,28 @@
 
   <footer class="gallery-season-nav">
 
-    <a href="autumn.html">
+    <a
+      href="autumn.html"
+      data-en="← Autumn"
+      data-ja="← 秋"
+    >
       ← Autumn
     </a>
 
-    <a href="spring.html">
+    <a
+      href="spring.html"
+      data-en="Spring →"
+      data-ja="春 →"
+    >
       Spring →
     </a>
 
   </footer>
 
-  <script src="../js/theme.js"></script>
-  <script src="../js/winter-gallery.js"></script>
-  <script src="../js/gallery.js"></script>
+<script src="../js/theme.js"></script>
+<script src="../js/language.js"></script>
+<script src="../js/winter-gallery.js"></script>
+<script src="../js/gallery.js"></script>
 
 </body>
 </html>
