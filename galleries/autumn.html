@@ -15,6 +15,23 @@
     document.documentElement.classList.add("dark-mode");
   }
 </script>
+
+    <script>
+  try {
+    const savedLanguage =
+      localStorage.getItem("language") || "en";
+
+    document.documentElement.setAttribute(
+      "data-language",
+      savedLanguage
+    );
+  } catch (error) {
+    document.documentElement.setAttribute(
+      "data-language",
+      "en"
+    );
+  }
+</script>
   
   <title>Autumn</title>
 
@@ -56,7 +73,7 @@
   <main class="gallery-viewer">
 
     <div class="gallery-heading">
-      <h1>Autumn</h1>
+      <h1 data-en="Autumn" data-ja="秋">Autumn</h1>
     </div>
 
 
@@ -95,19 +112,21 @@
 
       <button
         id="previous-button"
-        type="button"
-      >
+        data-en="Previous"
+        data-ja="前へ"
+    >
         Previous
-      </button>
+  </button>
 
       <span class="control-divider">/</span>
 
       <button
         id="next-button"
-        type="button"
-      >
-        Next
-      </button>
+        data-en="Next"
+        data-ja="次へ"
+    >
+      Next
+</button>
 
     </div>
 
@@ -116,17 +135,26 @@
 
   <footer class="gallery-season-nav">
 
-    <a href="summer.html">
+    <a
+      href="summer.html"
+      data-en="← Summer"
+      data-ja="← 夏"
+    >
       ← Summer
     </a>
 
-    <a href="winter.html">
+    <a
+      href="winter.html"
+      data-en="Winter →"
+      data-ja="冬 →"
+    >
       Winter →
     </a>
 
   </footer>
 
   <script src="../js/theme.js"></script>
+  <script src="../js/language.js"></script>
   <script src="../js/autumn-gallery.js"></script>
   <script src="../js/gallery.js"></script>
 
