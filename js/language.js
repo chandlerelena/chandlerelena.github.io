@@ -46,6 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
         : "Switch to Japanese"
     );
 
+    window.dispatchEvent(
+      new CustomEvent("languagechange", {
+        detail: { language }
+      })
+    );
+
   }
 
   languageToggle.addEventListener(
