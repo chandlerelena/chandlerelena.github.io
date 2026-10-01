@@ -15,6 +15,23 @@
     document.documentElement.classList.add("dark-mode");
   }
 </script>
+
+<script>
+  try {
+    const savedLanguage =
+      localStorage.getItem("language") || "en";
+
+    document.documentElement.setAttribute(
+      "data-language",
+      savedLanguage
+    );
+  } catch (error) {
+    document.documentElement.setAttribute(
+      "data-language",
+      "en"
+    );
+  }
+</script>
   
   <title>About</title>
 
@@ -115,5 +132,6 @@
   </footer>
 
   <script src="js/theme.js"></script>
+  <script src="js/language.js"></script>
 </body>
 </html>
