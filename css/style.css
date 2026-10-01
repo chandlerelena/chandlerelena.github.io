@@ -69,6 +69,11 @@ html[data-language="ja"] .site-name-ja {
   display: block;
 }
 
+html[data-language="ja"] .season-overlay span {
+  font-size: 25px;
+  letter-spacing: 0;
+}
+
 .site-nav {
   display: flex;
   align-items: center;
@@ -240,6 +245,9 @@ html[data-language="ja"] .site-name-ja {
     gap: 28px;
   }
 
+   html[data-language="ja"] .season-overlay span {
+  font-size: 21px;
+}
   /*
      A little taller on phones so the photographs
      don't become extremely thin panoramic strips.
