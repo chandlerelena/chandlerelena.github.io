@@ -836,6 +836,59 @@ html[data-language="ja"]:not(.language-ready)
   visibility: hidden;
 }
 
+/* --------------------------------
+   Gallery typography controls
+   -------------------------------- */
+
+/* ENGLISH */
+
+html[data-language="en"] .gallery-caption {
+  font-size: 12px;
+}
+
+html[data-language="en"] .gallery-counter {
+  font-size: 11px;
+}
+
+html[data-language="en"] .gallery-controls button {
+  font-size: 11px;
+}
+
+html[data-language="en"] .control-divider {
+  font-size: 11px;
+}
+
+html[data-language="en"] .gallery-season-nav {
+  font-size: 11px;
+}
+
+
+/* JAPANESE */
+
+html[data-language="ja"] .gallery-caption {
+  font-size: 12px;
+}
+
+html[data-language="ja"] .location-ja {
+  font-size: 12px;
+}
+
+html[data-language="ja"] .gallery-counter {
+  font-size: 12px;
+}
+
+html[data-language="ja"] .gallery-controls button {
+  font-size: 13px;
+}
+
+html[data-language="ja"] .control-divider {
+  font-size: 12px;
+}
+
+html[data-language="ja"] .gallery-season-nav {
+  font-size: 13px;
+}
+
 /* Mobile */
 
 @media (max-width: 700px) {
