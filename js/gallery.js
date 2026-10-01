@@ -1,16 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-  /*
-    =========================================
-    SHARED GALLERY ENGINE
-    =========================================
-
-    The variable "gallery" is supplied by the
-    individual gallery content file loaded
-    before this script.
-  */
-
-
   const image =
     document.getElementById("gallery-image");
 
@@ -35,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const nextButton =
     document.getElementById("next-button");
 
-
   let currentIndex = 0;
   let isAnimating = false;
 
@@ -44,40 +31,36 @@ document.addEventListener("DOMContentLoaded", () => {
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-
-  /*
-    Display total image count.
-  */
-
   totalNumber.textContent =
     String(gallery.length).padStart(2, "0");
 
-
-  /*
-    Preload only the neighboring photograph.
-  */
+  function getLanguage() {
+    return (
+      localStorage.getItem("language") || "en"
+    );
+  }
 
   function preloadImage(index) {
-
     if (index < 0 || index >= gallery.length) {
       return;
     }
 
     const preload = new Image();
     preload.src = gallery[index].image;
-
   }
 
-
-  /*
-    Update caption, counter and buttons.
-  */
-
   function updateInformation() {
-
     const item = gallery[currentIndex];
+    const language = getLanguage();
 
-    location.textContent = item.location;
+    if (language === "ja" && item.locationJa) {
+      location.innerHTML =
+        `${item.location}<br>` +
+        `<span class="location-ja">${item.locationJa}</span>`;
+    } else {
+      location.textContent = item.location;
+    }
+
     date.textContent = item.date;
 
     currentNumber.textContent =
@@ -88,41 +71,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     nextButton.disabled =
       currentIndex === gallery.length - 1;
-
   }
 
-
-  /*
-    Give the caption a landscape or portrait
-    class based on the current photograph.
-  */
-
   function updateCaptionPosition() {
-
     caption.classList.remove(
       "landscape",
       "portrait"
     );
 
     if (image.naturalWidth > image.naturalHeight) {
-
       caption.classList.add("landscape");
-
     } else {
-
       caption.classList.add("portrait");
-
     }
-
   }
 
-
-  /*
-    Load the initial photograph.
-  */
-
   function loadInitialImage() {
-
     const item = gallery[currentIndex];
 
     image.onload = () => {
@@ -133,18 +97,10 @@ document.addEventListener("DOMContentLoaded", () => {
     image.alt = item.alt;
 
     updateInformation();
-
     preloadImage(currentIndex + 1);
-
   }
 
-
-  /*
-    Move to another photograph.
-  */
-
   function changeImage(newIndex, direction) {
-
     if (
       isAnimating ||
       newIndex < 0 ||
@@ -153,14 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-
-    /*
-      Reduced-motion visitors get an
-      immediate image change.
-    */
-
     if (prefersReducedMotion) {
-
       currentIndex = newIndex;
 
       const item = gallery[currentIndex];
@@ -180,7 +129,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-
     isAnimating = true;
 
     const outgoingDistance =
@@ -189,39 +137,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const incomingDistance =
       direction === "next" ? "100%" : "-100%";
 
-
-    /*
-      Move current photograph outward.
-    */
-
     image.style.transform =
       `translateX(${outgoingDistance})`;
 
     image.style.opacity = "0";
 
-
     setTimeout(() => {
-
       currentIndex = newIndex;
-
       const item = gallery[currentIndex];
 
       image.style.transition = "none";
 
-      /*
-        Attach the load handler BEFORE changing
-        the image source. This also works if the
-        photograph has already been cached.
-      */
-
       image.onload = () => {
-
         updateCaptionPosition();
 
         requestAnimationFrame(() => {
-
           requestAnimationFrame(() => {
-
             image.style.transition =
               "transform 0.35s ease, opacity 0.35s ease";
 
@@ -233,11 +164,8 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
               isAnimating = false;
             }, 350);
-
           });
-
         });
-
       };
 
       image.src = item.image;
@@ -251,73 +179,42 @@ document.addEventListener("DOMContentLoaded", () => {
       preloadImage(currentIndex - 1);
       preloadImage(currentIndex + 1);
 
-      /*
-        A cached image may already be complete.
-      */
-
       if (image.complete) {
         image.onload();
       }
 
     }, 350);
-
   }
 
-
-  /*
-    Buttons
-  */
-
   nextButton.addEventListener("click", () => {
-
     changeImage(
       currentIndex + 1,
       "next"
     );
-
   });
 
-
   previousButton.addEventListener("click", () => {
-
     changeImage(
       currentIndex - 1,
       "previous"
     );
-
   });
 
-
-  /*
-    Keyboard navigation
-  */
-
   document.addEventListener("keydown", (event) => {
-
     if (event.key === "ArrowRight") {
-
       changeImage(
         currentIndex + 1,
         "next"
       );
-
     }
 
     if (event.key === "ArrowLeft") {
-
       changeImage(
         currentIndex - 1,
         "previous"
       );
-
     }
-
   });
-
-
-  /*
-    Touch / swipe navigation
-  */
 
   let touchStartX = 0;
   let touchEndX = 0;
@@ -325,23 +222,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const stage =
     document.querySelector(".gallery-stage");
 
-
   stage.addEventListener(
     "touchstart",
     (event) => {
-
       touchStartX =
         event.changedTouches[0].screenX;
-
     },
     { passive: true }
   );
 
-
   stage.addEventListener(
     "touchend",
     (event) => {
-
       touchEndX =
         event.changedTouches[0].screenX;
 
@@ -353,26 +245,26 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (distance < 0) {
-
         changeImage(
           currentIndex + 1,
           "next"
         );
-
       } else {
-
         changeImage(
           currentIndex - 1,
           "previous"
         );
-
       }
-
     },
     { passive: true }
   );
 
+  window.addEventListener(
+    "languagechange",
+    () => {
+      updateInformation();
+    }
+  );
 
   loadInitialImage();
-
 });
