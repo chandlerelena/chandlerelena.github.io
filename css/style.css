@@ -797,6 +797,10 @@ html.dark-mode .about-copy p {
     opacity 0.3s ease;
 }
 
+html[data-language="ja"] [data-en][data-ja] {
+  visibility: hidden;
+}
+
 /* Mobile */
 
 @media (max-width: 700px) {
