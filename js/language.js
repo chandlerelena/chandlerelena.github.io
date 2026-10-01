@@ -30,6 +30,15 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.lang =
       language === "ja" ? "ja" : "en";
 
+    document.documentElement.setAttribute(
+      "data-language",
+      language
+);
+
+    document.documentElement.classList.add(
+      "language-ready"
+);
+    
     languageToggle.setAttribute(
       "aria-label",
       language === "ja"
