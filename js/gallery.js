@@ -346,17 +346,37 @@ document.addEventListener("DOMContentLoaded", () => {
      Live language switching
      -------------------------------- */
 
-  window.addEventListener(
-    "languagechange",
-    () => {
-      updateInformation();
-    }
-  );
+window.addEventListener(
+  "languagechange",
+  () => {
+    updateInformation();
+  }
+);
 
 
-  /* --------------------------------
-     Start gallery
-     -------------------------------- */
+/* --------------------------------
+   Direct URL changes
+   -------------------------------- */
 
-  loadInitialImage();
+window.addEventListener("hashchange", () => {
+  const newIndex = getIndexFromURL();
+
+  if (newIndex === currentIndex) {
+    return;
+  }
+
+  const direction =
+    newIndex > currentIndex
+      ? "next"
+      : "previous";
+
+  changeImage(newIndex, direction);
+});
+
+
+/* --------------------------------
+   Start gallery
+   -------------------------------- */
+
+loadInitialImage();
 });
