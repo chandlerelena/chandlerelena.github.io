@@ -15,8 +15,25 @@
     document.documentElement.classList.add("dark-mode");
   }
 </script>
+
+<script>
+  try {
+    const savedLanguage =
+      localStorage.getItem("language") || "en";
+
+    document.documentElement.setAttribute(
+      "data-language",
+      savedLanguage
+    );
+  } catch (error) {
+    document.documentElement.setAttribute(
+      "data-language",
+      "en"
+    );
+  }
+</script>
   
-  <title>Journal — Chandler Elena Photography</title>
+  <title>Journal</title>
 
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -25,13 +42,22 @@
 
   <header class="site-header">
     <a href="index.html" class="site-title">
-      CHANDLER ELENA
+      <span class="site-name">CHANDLER ELENA</span>
+      <span class="site-name-ja">チャンドラ エレナ</span>
     </a>
 
     <nav class="site-nav">
-      <a href="index.html">Work</a>
-      <a href="journal.html">Journal</a>
-      <a href="about.html">About</a>
+      <a href="index.html" data-en="Work" data-ja="作品集">Work</a>
+      <a href="journal.html" data-en="Journal" data-ja="ブログ">Journal</a>
+      <a href="about.html" data-en="About" data-ja="私について">About</a>
+
+      <button
+        class="language-toggle"
+        type="button"
+        aria-label="Switch to Japanese"
+      >
+        EN / 日本語
+      </button>
 
       <button
         class="theme-toggle"
@@ -57,5 +83,6 @@
   </footer>
 
   <script src="js/theme.js"></script>
+  <script src="js/language.js"></script>
 </body>
 </html>
