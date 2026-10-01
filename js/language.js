@@ -1,0 +1,66 @@
+document.addEventListener("DOMContentLoaded", () => {
+
+  const languageToggle =
+    document.querySelector(".language-toggle");
+
+  if (!languageToggle) {
+    return;
+  }
+
+  function getLanguage() {
+    return (
+      localStorage.getItem("language") || "en"
+    );
+  }
+
+  function applyLanguage(language) {
+
+    const translatedElements =
+      document.querySelectorAll(
+        "[data-en][data-ja]"
+      );
+
+    translatedElements.forEach((element) => {
+      element.textContent =
+        language === "ja"
+          ? element.dataset.ja
+          : element.dataset.en;
+    });
+
+    document.documentElement.lang =
+      language === "ja" ? "ja" : "en";
+
+    languageToggle.setAttribute(
+      "aria-label",
+      language === "ja"
+        ? "Switch to English"
+        : "Switch to Japanese"
+    );
+
+  }
+
+  languageToggle.addEventListener(
+    "click",
+    () => {
+
+      const currentLanguage =
+        getLanguage();
+
+      const newLanguage =
+        currentLanguage === "ja"
+          ? "en"
+          : "ja";
+
+      localStorage.setItem(
+        "language",
+        newLanguage
+      );
+
+      applyLanguage(newLanguage);
+
+    }
+  );
+
+  applyLanguage(getLanguage());
+
+});
