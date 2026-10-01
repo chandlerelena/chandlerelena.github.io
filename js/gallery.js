@@ -34,11 +34,67 @@ document.addEventListener("DOMContentLoaded", () => {
   totalNumber.textContent =
     String(gallery.length).padStart(2, "0");
 
+
+  /* --------------------------------
+     Gallery URL position
+     -------------------------------- */
+
+  function getIndexFromURL() {
+    const hash =
+      window.location.hash.replace("#", "");
+
+    if (!hash) {
+      return 0;
+    }
+
+    const imageNumber =
+      Number.parseInt(hash, 10);
+
+    if (
+      Number.isNaN(imageNumber) ||
+      imageNumber < 1 ||
+      imageNumber > gallery.length
+    ) {
+      return 0;
+    }
+
+    return imageNumber - 1;
+  }
+
+  function updateURL() {
+    if (currentIndex === 0) {
+      history.replaceState(
+        null,
+        "",
+        window.location.pathname +
+          window.location.search
+      );
+
+      return;
+    }
+
+    history.replaceState(
+      null,
+      "",
+      `#${currentIndex + 1}`
+    );
+  }
+
+
+  /* --------------------------------
+     Language
+     -------------------------------- */
+
   function getLanguage() {
     return (
       localStorage.getItem("language") || "en"
     );
   }
+
+
+  /* --------------------------------
+     Image loading
+     -------------------------------- */
 
   function preloadImage(index) {
     if (index < 0 || index >= gallery.length) {
@@ -87,6 +143,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function loadInitialImage() {
+    currentIndex = getIndexFromURL();
+
     const item = gallery[currentIndex];
 
     image.onload = () => {
@@ -97,8 +155,15 @@ document.addEventListener("DOMContentLoaded", () => {
     image.alt = item.alt;
 
     updateInformation();
+
+    preloadImage(currentIndex - 1);
     preloadImage(currentIndex + 1);
   }
+
+
+  /* --------------------------------
+     Gallery movement
+     -------------------------------- */
 
   function changeImage(newIndex, direction) {
     if (
@@ -122,6 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
       image.alt = item.alt;
 
       updateInformation();
+      updateURL();
 
       preloadImage(currentIndex - 1);
       preloadImage(currentIndex + 1);
@@ -175,6 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `translateX(${incomingDistance})`;
 
       updateInformation();
+      updateURL();
 
       preloadImage(currentIndex - 1);
       preloadImage(currentIndex + 1);
@@ -185,6 +252,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }, 350);
   }
+
+
+  /* --------------------------------
+     Buttons
+     -------------------------------- */
 
   nextButton.addEventListener("click", () => {
     changeImage(
@@ -199,6 +271,11 @@ document.addEventListener("DOMContentLoaded", () => {
       "previous"
     );
   });
+
+
+  /* --------------------------------
+     Keyboard
+     -------------------------------- */
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowRight") {
@@ -215,6 +292,11 @@ document.addEventListener("DOMContentLoaded", () => {
       );
     }
   });
+
+
+  /* --------------------------------
+     Mobile swipe
+     -------------------------------- */
 
   let touchStartX = 0;
   let touchEndX = 0;
@@ -259,12 +341,22 @@ document.addEventListener("DOMContentLoaded", () => {
     { passive: true }
   );
 
+
+  /* --------------------------------
+     Live language switching
+     -------------------------------- */
+
   window.addEventListener(
     "languagechange",
     () => {
       updateInformation();
     }
   );
+
+
+  /* --------------------------------
+     Start gallery
+     -------------------------------- */
 
   loadInitialImage();
 });
