@@ -461,6 +461,10 @@ html[data-language="ja"] .season-overlay span {
   color: #777777;
 }
 
+html[data-language="ja"] .gallery-heading h1 {
+  font-size: 18px;
+  letter-spacing: 0;
+}
 
 /* The fixed visual stage */
 
