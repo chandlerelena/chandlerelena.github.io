@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    if (
+      savedTheme === "dark" ||
+      (!savedTheme && prefersDark)
+    ) {
+      document.documentElement.classList.add("dark-mode");
+    }
+  </script>
+
+  <script>
+    try {
+      const savedLanguage =
+        localStorage.getItem("language") || "en";
+
+      document.documentElement.setAttribute(
+        "data-language",
+        savedLanguage
+      );
+    } catch (error) {
+      document.documentElement.setAttribute(
+        "data-language",
+        "en"
+      );
+    }
+  </script>
+
+  <title>Journal</title>
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <a href="/" class="site-title">
+      <img
+        class="site-signature"
+        src="../images/signature.png"
+        alt="Chandler Elena"
+      >
+
+      <span class="site-name-ja">チャンドラ エレナ</span>
+    </a>
+
+    <nav class="site-nav">
+      <a href="/" data-en="Work" data-ja="作品集">Work</a>
+      <a href="/journal/" data-en="Journal" data-ja="ブログ">Journal</a>
+      <a href="/about/" data-en="About" data-ja="私について">About</a>
+
+      <button
+        class="language-toggle"
+        type="button"
+        aria-label="Switch to Japanese"
+      >
+        EN / 日本語
+      </button>
+
+      <button
+        class="theme-toggle"
+        type="button"
+        aria-label="Switch to dark mode"
+      >
+        ☾
+      </button>
+    </nav>
+
+  </header>
+
+
+  <main class="coming-soon">
+
+    <p
+      data-en="Journal coming soon."
+      data-ja="ブログは近日公開予定です。"
+    >
+      Journal coming soon.
+    </p>
+
+  </main>
+
+
+  <footer class="site-footer">
+    <p>© 2026 Chandler Elena</p>
+  </footer>
+
+  <script src="../js/theme.js"></script>
+  <script src="../js/language.js"></script>
+</body>
+</html>
