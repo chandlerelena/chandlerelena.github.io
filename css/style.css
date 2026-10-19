@@ -74,9 +74,10 @@ body {
 }
 
 /* Light/dark mode */
-html[data-theme="dark"] .site-signature {
+html.dark-mode .site-signature {
   filter: invert(1);
 }
+
 
 html[data-language="ja"] .site-name-ja {
   display: block;
