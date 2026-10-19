@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>
+  const savedTheme = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  if (
+    savedTheme === "dark" ||
+    (!savedTheme && prefersDark)
+  ) {
+    document.documentElement.classList.add("dark-mode");
+  }
+</script>
+
+<script>
+  try {
+    const savedLanguage =
+      localStorage.getItem("language") || "en";
+
+    document.documentElement.setAttribute(
+      "data-language",
+      savedLanguage
+    );
+  } catch (error) {
+    document.documentElement.setAttribute(
+      "data-language",
+      "en"
+    );
+  }
+</script>
+  
+  <title>About</title>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+  <a href="index.html" class="site-title">
+  
+  <img
+      class="site-signature"
+      src="images/signature.png"
+      alt="Chandler Elena"
+  >
+
+  <span class="site-name-ja">チャンドラ エレナ</span>
+</a>
+
+    <nav class="site-nav">
+    <a href="index.html" data-en="Work" data-ja="作品集">Work</a>
+    <a href="journal.html" data-en="Journal" data-ja="ブログ">Journal</a>
+    <a href="about.html" data-en="About" data-ja="私について">About</a>
+
+    <button
+      class="language-toggle"
+      type="button"
+      aria-label="Switch to Japanese"
+  >
+      EN / 日本語
+  </button>
+
+      <button
+        class="theme-toggle"
+        type="button"
+        aria-label="Switch to dark mode"
+      >
+        ☾
+      </button>
+    </nav>
+    
+  </header>
+
+
+  <main class="about-page">
+
+    <div class="about-image">
+      <img
+        src="images/about/about.jpg"
+        alt="Portrait of Chandler Elena"
+      >
+    </div>
+
+    <div class="about-copy">
+
+      <h1>About</h1>
+
+
+    <!-- English biography -->
+    <div class="bio-english">
+      <p>
+        I started my experiments in photography as an elementary school student with point-and-shoot cameras lent to me on vacations. As a teenager, I began practicing in concert venues with a series of Nikon DSLRs, where an encounter with a medium format photographer changed what I thought such a camera in the field was capable of.
+      </p>
+
+      <p>
+        After years of waiting for technology to catch up, my dream of travel-friendly, uncompromising image quality was finally realized with the Hasselblad X System. The clean and simple UI alongside my lightweight travel gear makes managing my rheumatoid arthritis that much easier.
+      </p>
+
+      <p>
+        My focus as of late is on landscapes, cultivated gardens, and organic artistic endeavors, all featuring varying traces of human intervention. Much of my work now takes me in search of these carefully created places, particularly those whose artists and caretakers deserve far more attention than they receive. At the moment, I am partway through a five-year survey of such locations spanning the entirety of Japan.
+      </p>
+
+      <p>
+        When I’m not out and about, I’m tending to my two anxious cats and researching spots for the seasons ahead.
+      </p>
+    </div>
+
+    <!-- Japanese biography -->
+    <div class="bio-japanese" lang="ja">
+      <p>
+        私はカリフォルニア出身の風景写真家で、現在日本各地の庭園や公園を巡っています。旅を続ける中で、新しい写真をこのウェブサイトに随時追加していきます。
+      </p>
+
+      <p>
+        ご訪問ありがとうございます！
+      </p>
+    </div>
+
+      <div class="social-links">
+
+        <a
+          href="https://www.flickr.com/photos/chandlerelena"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Flickr"
+        >
+          <img src="images/icons/flickr.png" alt="">
+        </a>
+
+        <a
+          href="#"
+          aria-label="Substack"
+        >
+          <img src="images/icons/substack.png" alt="">
+        </a>
+
+        <a
+          href="https://pixelfed.social/chandlerelena"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Pixelfed"
+        >
+          <img src="images/icons/pixelfed.png" alt="">
+        </a>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <footer class="site-footer">
+    <p>© 2026 Chandler Elena</p>
+  </footer>
+
+  <script src="js/theme.js"></script>
+  <script src="js/language.js"></script>
+</body>
+</html>
