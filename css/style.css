@@ -65,6 +65,19 @@ body {
   letter-spacing: 0.08em;
 }
 
+/* Handwritten signature header */
+.site-signature {
+  display: block;
+  width: 210px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Light/dark mode */
+html[data-theme="dark"] .site-signature {
+  filter: invert(1);
+}
+
 html[data-language="ja"] .site-name-ja {
   display: block;
 }
@@ -231,6 +244,10 @@ html[data-language="ja"] .season-overlay span {
   .site-title {
     font-size: 17px;
   }
+
+   .site-signature {
+     width: 185px;
+   }
 
   .site-nav {
     gap: 20px;
