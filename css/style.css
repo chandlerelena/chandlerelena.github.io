@@ -912,3 +912,10 @@ html[data-language="ja"] .bio-japanese {
   display: block;
 }
 
+/* Carrier Pidge contact line */
+.pigeon-contact {
+  margin-top: 18px;
+  font-size: 13px;
+  line-height: 1.6;
+  opacity: 0.7;
+}
