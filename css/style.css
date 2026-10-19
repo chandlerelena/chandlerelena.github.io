@@ -898,3 +898,17 @@ html[data-language="ja"] .gallery-season-nav {
   }
 
 }
+
+/* About page bilingual biography */
+.bio-japanese {
+  display: none;
+}
+
+html[data-language="ja"] .bio-english {
+  display: none;
+}
+
+html[data-language="ja"] .bio-japanese {
+  display: block;
+}
+
