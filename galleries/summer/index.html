@@ -1,79 +1,77 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script>
-  const savedTheme = localStorage.getItem("theme");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  <script>
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  if (
-    savedTheme === "dark" ||
-    (!savedTheme && prefersDark)
-  ) {
-    document.documentElement.classList.add("dark-mode");
-  }
-</script>
+    if (
+      savedTheme === "dark" ||
+      (!savedTheme && prefersDark)
+    ) {
+      document.documentElement.classList.add("dark-mode");
+    }
+  </script>
 
-<script>
-  try {
-    const savedLanguage =
-      localStorage.getItem("language") || "en";
+  <script>
+    try {
+      const savedLanguage =
+        localStorage.getItem("language") || "en";
 
-    document.documentElement.setAttribute(
-      "data-language",
-      savedLanguage
-    );
-  } catch (error) {
-    document.documentElement.setAttribute(
-      "data-language",
-      "en"
-    );
-  }
-</script>
-  
+      document.documentElement.setAttribute(
+        "data-language",
+        savedLanguage
+      );
+    } catch (error) {
+      document.documentElement.setAttribute(
+        "data-language",
+        "en"
+      );
+    }
+  </script>
+
   <title>Summer</title>
 
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body class="gallery-page">
 
   <header class="site-header gallery-header">
-
-<a href="../index.html" class="site-title">
-    <img
+    <a href="/" class="site-title">
+      <img
         class="site-signature"
-        src="../images/signature.png"
+        src="/images/signature.png"
         alt="Chandler Elena"
-    >
-  <span class="site-name-ja">チャンドラ エレナ</span>
-</a>
+      >
+      <span class="site-name-ja">チャンドラ エレナ</span>
+    </a>
 
-<nav class="site-nav">
-  <a href="../index.html" data-en="Work" data-ja="作品集">Work</a>
-  <a href="/journal/" data-en="Journal" data-ja="ブログ">Journal</a>
-  <a href="/about/" data-en="About" data-ja="私について">About</a>
+    <nav class="site-nav">
+      <a href="/" data-en="Work" data-ja="作品集">Work</a>
+      <a href="/journal/" data-en="Journal" data-ja="ブログ">Journal</a>
+      <a href="/about/" data-en="About" data-ja="私について">About</a>
 
+      <button
+        class="language-toggle"
+        type="button"
+        aria-label="Switch to Japanese"
+      >
+        EN / 日本語
+      </button>
 
-  <button
-    class="language-toggle"
-    type="button"
-    aria-label="Switch to Japanese"
-  >
-    EN / 日本語
-  </button>
-
-  <button
-    class="theme-toggle"
-    type="button"
-    aria-label="Switch to dark mode"
-  >
-    ☾
-  </button>
-</nav>
-
+      <button
+        class="theme-toggle"
+        type="button"
+        aria-label="Switch to dark mode"
+      >
+        ☾
+      </button>
+    </nav>
   </header>
 
 
@@ -83,21 +81,15 @@
       <h1 data-en="Summer" data-ja="夏">Summer</h1>
     </div>
 
-
     <div class="gallery-stage">
-
       <div class="gallery-slide">
-
         <img
           id="gallery-image"
           src=""
           alt=""
         >
-
       </div>
-
     </div>
-
 
     <div class="gallery-info">
 
@@ -114,7 +106,6 @@
 
     </div>
 
-
     <div class="gallery-controls">
 
       <button
@@ -130,7 +121,7 @@
       <button
         id="next-button"
         data-en="Next"
-      data-ja="次へ"
+        data-ja="次へ"
       >
         Next
       </button>
@@ -143,7 +134,7 @@
   <footer class="gallery-season-nav">
 
     <a
-      href="spring.html"
+      href="/galleries/spring/"
       data-en="← Spring"
       data-ja="← 春"
     >
@@ -151,7 +142,7 @@
     </a>
 
     <a
-      href="autumn.html"
+      href="/galleries/autumn/"
       data-en="Autumn →"
       data-ja="秋 →"
     >
@@ -160,10 +151,11 @@
 
   </footer>
 
-  <script src="../js/theme.js"></script>
-  <script src="../js/language.js"></script>
-  <script src="../js/summer-gallery.js"></script>
-  <script src="../js/gallery.js"></script>
+
+  <script src="/js/theme.js"></script>
+  <script src="/js/language.js"></script>
+  <script src="/js/summer-gallery.js"></script>
+  <script src="/js/gallery.js"></script>
 
 </body>
 </html>
