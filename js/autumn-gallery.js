@@ -134,7 +134,7 @@ const gallery = [
   },
   {
     image: "/images/galleries/autumn/autumn-gallery-20.jpg",
-    location: "Bandoko Garen, Saikazaki",
+    location: "Bandoko Garden, Saikazaki",
     locationJa: "番所庭園",
     date: "",
     alt: "Autumn photography"
